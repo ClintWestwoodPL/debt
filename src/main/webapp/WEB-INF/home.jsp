@@ -14,9 +14,9 @@
 
 <div class="jumbotron">
     <div class="container">
-        <h1>Dane klientów</h1>
-        <p>To coś co pozwala zrobić komuś takie coś, że potem jest kaput, w sumie to nie, ale go nie ma. I już.</p>
-        <p>Dodać też można, chyba, no ale jak chcesz. Można usunąć.</p>
+        <h1>Debts</h1>
+        <p>To coś co pozwala zrobić komuś takie coś z kasą, że potem jest kaput, w sumie to nie, ale jej nie ma. Albo jest. I już.</p>
+        <p>Dodać hasj też można, chyba, no ale jak chcesz. Można usunąć.</p>
         <p><a class="btn btn-primary btn-lg" href="<c:url value="/users"/>" role="button">Do It!</a></p>
     </div>
 </div>

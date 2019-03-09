@@ -17,8 +17,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="<c:url value="/users"/>">Lista użytkowników <span class="sr-only">(current)</span></a></li>
-                <li><a href="<c:url value="/users/create"/>">Dodaj użytkowników <span class="sr-only">(current)</span></a></li>
+                <li><a href="<c:url value="/debts"/>">Debt list <span class="sr-only">(current)</span></a></li>
+                <li><a href="<c:url value="/debts/create"/>">New debt <span class="sr-only">(current)</span></a></li>
 
             </ul>
 
