@@ -21,6 +21,9 @@
                 <li><a href="<c:url value="/debts/create"/>">New debt <span class="sr-only">(current)</span></a></li>
 
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="<c:url value="/logout"/>">Logout <span class="sr-only">(current)</span></a></li>
+            </ul>
 
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

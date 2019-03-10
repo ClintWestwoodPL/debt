@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.alx.debt.DAO.DebtDao;
 import pl.alx.debt.DAO.DebtorDao;
+import pl.alx.debt.DAO.UserDao;
 import pl.alx.debt.model.Debt;
 import pl.alx.debt.model.Debtor;
 import pl.alx.debt.model.User;
@@ -17,6 +18,7 @@ import pl.alx.debt.model.User;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,11 +29,16 @@ public class DebtController {
     private DebtDao debtDao;
     @Autowired
     private DebtorDao debtorDao;
+    @Autowired
+    private UserDao userDao;
 
     @GetMapping("/debts")
-    public String debtsPage(Model model) {
+    public String debtsPage(Model model, Principal principal) {
 
-        List<Debt> debts = debtDao.findAll();
+        String email = principal.getName(); //login usera tj email
+        User loggedInUser = userDao.findByEmail(email);
+
+        List<Debt> debts = debtDao.findByLender(loggedInUser);
         model.addAttribute("debts", debts);
 
         return "debt-list";
