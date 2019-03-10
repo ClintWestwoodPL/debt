@@ -1,6 +1,6 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -19,7 +19,10 @@
             <ul class="nav navbar-nav">
                 <li><a href="<c:url value="/debts"/>">Debt list <span class="sr-only">(current)</span></a></li>
                 <li><a href="<c:url value="/debts/create"/>">New debt <span class="sr-only">(current)</span></a></li>
+
+               <sec:authorize access="hasRole('ADMIN')">
                 <li><a href="<c:url value="/users"/>">Users <span class="sr-only">(current)</span></a></li>
+               </sec:authorize>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">

@@ -35,6 +35,7 @@ public class Security extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .mvcMatchers("/register")
                 .permitAll()
+                .mvcMatchers("/users").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()

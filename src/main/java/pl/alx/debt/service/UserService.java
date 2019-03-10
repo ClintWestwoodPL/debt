@@ -30,13 +30,19 @@ public class UserService implements UserDetailsService {
             throw new UsernameNotFoundException("User with email: " + email + " not found");
         }
 
-        List<GrantedAuthority> authorithies = new ArrayList<>();
-        authorithies.add(new SimpleGrantedAuthority("USER"));
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+
+        if (user.getRole() == User.Role.ADMIN) {
+
+            authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+
+        }
 
         return new org.springframework.security.core.userdetails.User(
                 user.getEmail(),
                 user.getPassword(),
-                authorithies
+                authorities
         );
     }
 }
