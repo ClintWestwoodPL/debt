@@ -25,8 +25,9 @@ public class Debtor {
     @Column (length = 45, nullable = false)
     private String lastName;
 
-
-
-
-
+    public Debtor(String email, String firstName, String lastName) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }

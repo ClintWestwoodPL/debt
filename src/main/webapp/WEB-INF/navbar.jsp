@@ -19,6 +19,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="<c:url value="/debts"/>">Debt list <span class="sr-only">(current)</span></a></li>
                 <li><a href="<c:url value="/debts/create"/>">New debt <span class="sr-only">(current)</span></a></li>
+                <li><a href="<c:url value="/users"/>">Users <span class="sr-only">(current)</span></a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">

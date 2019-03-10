@@ -13,10 +13,6 @@ import pl.alx.debt.DAO.UserDao;
 import pl.alx.debt.model.Debt;
 import pl.alx.debt.model.Debtor;
 import pl.alx.debt.model.User;
-
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.List;
@@ -54,9 +50,11 @@ public class DebtController {
 
     @PostMapping("/debts/create")
     public String saveDebt (@RequestParam Integer debtorId,
-                            @RequestParam BigDecimal amount) {
+                            @RequestParam BigDecimal amount,
+                            Principal principal) {
 
-        User lender = new User(1); // TODO: change to logged in user
+        String email = principal.getName();
+        User lender = userDao.findByEmail(email);
         Optional<Debtor> debtor = debtorDao.findById(debtorId);
         Debt debt = new Debt(lender, debtor.get(), amount);
         debtDao.save(debt);
